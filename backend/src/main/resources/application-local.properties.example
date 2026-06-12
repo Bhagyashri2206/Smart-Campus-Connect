@@ -1,9 +1,5 @@
-# Copy this file to application-local.properties and set YOUR PostgreSQL credentials.
-# application-local.properties is gitignored and overrides defaults in application.properties.
-#
-# BEFORE first run: create the database (pgAdmin → Query Tool, or psql):
+
 #   CREATE DATABASE campus_connect;
-# Or run: backend/scripts/create-database.sql
 
 spring.datasource.url=jdbc:postgresql://localhost:5432/campus_connect
 spring.datasource.username=postgres
