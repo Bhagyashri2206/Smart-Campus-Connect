@@ -1,0 +1,2 @@
+-- Optional seed data (disabled by default; enable with spring.sql.init.mode=always)
+-- Sample users password: password123

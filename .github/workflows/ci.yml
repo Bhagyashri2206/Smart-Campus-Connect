@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build backend
+        working-directory: backend
+        run: mvn -B -DskipTests package
+
+      - name: Upload backend JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-jar
+          path: backend/target/*.jar
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build frontend
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Upload frontend dist
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: frontend/dist
+
+      - name: Build and push Docker images (optional)
+        if: github.event_name == 'push' && secrets.DOCKERHUB_USERNAME && secrets.DOCKERHUB_PASSWORD
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: |
+            ${{ secrets.DOCKERHUB_USERNAME }}/smart-campus-connect-backend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/smart-campus-connect-frontend:latest
+          build-args: |
+            JWT_SECRET=${{ secrets.JWT_SECRET }}
+        # backend image context
+        # Build matrix not used; simply build both Dockerfiles via contexts
+        # Build backend
+      
+*** End Patch

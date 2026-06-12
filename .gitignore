@@ -1,0 +1,25 @@
+# Project
+/target/
+/.idea/
+.vscode/
+.DS_Store
+
+# Backend
+/backend/target/
+/backend/.settings/
+/backend/.classpath
+/backend/.project
+/backend/.idea/
+/backend/*.log
+/backend/application-local.properties
+# Local Spring properties (do not commit real credentials)
+/backend/src/main/resources/application-local.properties
+
+# Frontend
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.env
+
+# OS
+Thumbs.db
+ehthumbs.db

@@ -1,0 +1,44 @@
+package com.campusconnect.model;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+@Entity
+@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
+    private String name;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private Role role;
+
+    @Column(nullable = false)
+    private String department;
+
+    @Column(length = 120)
+    private String statusMessage;
+
+    @Column(length = 512)
+    private String profilePicUrl;
+
+    @Column(nullable = false)
+    @Builder.Default
+    private Boolean onlineStatus = false;
+}
