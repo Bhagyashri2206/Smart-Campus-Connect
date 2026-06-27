@@ -62,7 +62,7 @@ export default function RegisterPage() {
               name="name"
               value={form.name}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500"
+              className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500 text-black"
               required
             />
           </div>
@@ -73,7 +73,7 @@ export default function RegisterPage() {
               type="email"
               value={form.email}
               onChange={handleChange}
-              className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500"
+              className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500 text-black"
               required
             />
           </div>
@@ -85,7 +85,7 @@ export default function RegisterPage() {
               value={form.password}
               onChange={handleChange}
               minLength={6}
-              className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500"
+              className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500 text-black"
               required
             />
           </div>
@@ -96,7 +96,7 @@ export default function RegisterPage() {
                 name="role"
                 value={form.role}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500"
+                className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500 text-black"
               >
                 <option value="STUDENT">Student</option>
                 <option value="TEACHER">Teacher</option>
@@ -109,7 +109,7 @@ export default function RegisterPage() {
                 name="department"
                 value={form.department}
                 onChange={handleChange}
-                className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500"
+                className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-campus-500 text-black"
               >
                 {DEPARTMENTS.map((d) => (
                   <option key={d} value={d}>{d}</option>

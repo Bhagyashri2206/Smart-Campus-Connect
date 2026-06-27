@@ -5,3 +5,7 @@
 **/.idea
 **/.vscode
 *.log
+# Exclude all .env files to prevent accidental secrets from being copied
+.env*
+frontend/.env*
+backend/application-local.properties
